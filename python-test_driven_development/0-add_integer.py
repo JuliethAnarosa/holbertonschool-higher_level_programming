@@ -6,7 +6,7 @@ Add Integer or Float Module
 
 def add_integer(a, b=98):
     """
-    ADD Two integer a and b
+    ADD Two integ a and b
     Args:
         a (int/float): first int
         b (int/float): Second int
