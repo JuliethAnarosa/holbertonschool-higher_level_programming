@@ -1,17 +1,26 @@
+==================================
 The ``5-text_indentation`` module
-======================
+==================================
 
-Using ``text_indentation``
--------------------
+Using ``text-indentation``
+---------------------------
 
-This is an example text file in reStructuredText format.  First import
-``text_indentation`` from the ``5-text_indentation`` module:
+Import the function:
 
     >>> text_indentation = __import__('5-text_indentation').text_indentation
 
-    >>> text_indentation(98)
-    Traceback (most recent call last):
-    TypeError: text must be a string
+Now test it:
+
+    >>> text_indentation("Hello.")
+    Hello.
+    <BLANKLINE>
+
+    >>> text_indentation("Hello. World: Here I am!")
+    Hello.
+    <BLANKLINE>
+    World:
+    <BLANKLINE>
+    Here I am!
 
     >>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
     ... Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
@@ -22,7 +31,6 @@ This is an example text file in reStructuredText format.  First import
     ... stadia confecimus. Sin aliud quid voles, postea. Quae animi affectio suum \
     ... cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio \
     ... beatiorem! Iam ruinas videres""")
-    ...
     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     <BLANKLINE>
     Quonam modo?
@@ -51,8 +59,29 @@ This is an example text file in reStructuredText format.  First import
     <BLANKLINE>
     Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
 
-    >>> text_indentation("")
+    >>> text_indentation(".    : ?")
+    .
     <BLANKLINE>
+    :
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+
+    >>> text_indentation("Holberton")
+    Holberton
+
+    >>> text_indentation(9)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+    >>> text_indentation("Hello\n\nThere.")
+    Hello
+    <BLANKLINE>
+    There.
+    <BLANKLINE>
+
+    >>> text_indentation("")
+
     >>> text_indentation()
     Traceback (most recent call last):
     TypeError: text_indentation() missing 1 required positional argument: 'text'
