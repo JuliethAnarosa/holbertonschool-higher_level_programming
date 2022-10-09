@@ -1,22 +1,17 @@
 #!/usr/bin/python3
 """
-module
+This module contains the "Base" class
 """
 
 
-
 class Base:
-    """
-    class Base
-    """
+    """A base class"""
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """
-        inctance
-        """
-        if id is not None:
-            self.id = id
-        else:
-            self.id = Base.__nb_objects
+        """Initialize the base class"""
+        if id is None:
             Base.__nb_objects += 1
+            self.id = self.__nb_objects
+        else:
+            self.id = id
